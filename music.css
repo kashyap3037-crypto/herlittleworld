@@ -1,0 +1,323 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+    --accent-color: #f472b6;
+    --pulse-opacity: 0.1;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    overflow: hidden;
+    transition: background 0.8s ease;
+}
+
+/* Stunning Dynamic Background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image: var(--song-bg, linear-gradient(135deg, #fff1f5, #f0f9ff));
+    background-size: cover;
+    background-position: center;
+    filter: blur(25px) brightness(0.7); /* Reduced blur and increased brightness */
+    z-index: -3;
+    transition: background-image 1.2s ease;
+}
+
+/* Beat Sync Overlay */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: var(--accent-color);
+    opacity: var(--pulse-opacity);
+    z-index: -2;
+    transition: opacity 0.1s linear, background 1s ease;
+}
+
+/* Texture Overlay */
+.bg-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url("https://www.transparenttextures.com/patterns/pinstriped-suit.png"); /* Subtle texture */
+    opacity: 0.15;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Music Layout Container */
+.music-layout {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    animation: fadeIn 1s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* External Nav Arrows */
+.external-nav {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+}
+
+.external-nav:hover {
+    background: var(--accent-color);
+    box-shadow: 0 0 20px var(--accent-color);
+    transform: scale(1.1);
+    border-color: transparent;
+}
+
+/* Card Styling */
+.card {
+    width: 280px;
+    border-radius: 30px;
+    background: rgba(20, 20, 20, 0.6);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 1s ease;
+    cursor: grab;
+    user-select: none;
+}
+
+.card:hover {
+    border-color: var(--accent-color);
+}
+
+/* Image */
+.image-box {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    pointer-events: none;
+    position: relative;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Content */
+.content {
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+.content h2 {
+    font-size: 1.05rem;
+    margin-bottom: 5px;
+    color: #fff;
+    text-shadow: 0 0 8px var(--accent-color);
+    transition: color 1s ease, text-shadow 1s ease;
+}
+
+.sub {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 20px;
+}
+
+#message {
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    margin-bottom: 20px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    font-weight: 500;
+    line-height: 1.4;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+/* Progress */
+.progress-container {
+    width: 100%;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background: var(--accent-color);
+    border-radius: 10px;
+    transition: 0.1s linear, background 1s ease;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+.time {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 20px;
+}
+
+/* Controls */
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#toggleBtn {
+    width: 50px;
+    height: 50px;
+    background: white;
+    color: #111;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+#toggleBtn:hover {
+    transform: scale(1.1);
+    background: var(--accent-color);
+    color: white;
+    box-shadow: 0 0 25px var(--accent-color);
+}
+
+/* Navigation Buttons */
+.nav-buttons {
+    margin-top: 40px;
+    display: flex;
+    gap: 20px;
+    animation: fadeInBtns 1.5s ease;
+}
+
+@keyframes fadeInBtns {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.btn {
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+    background: var(--accent-color);
+    border: none;
+    color: white;
+    transition: all 0.4s ease, background 1s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 15px 35px var(--accent-color);
+    transform: translateY(-5px) scale(1.05);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    body {
+        padding: 20px 0;
+        justify-content: flex-start;
+        padding-top: 50px;
+    }
+
+    /* Stack arrows comfortably */
+    .music-layout {
+        flex-direction: row;
+        gap: 12px;
+        width: 100%;
+        justify-content: center;
+        padding: 0 10px;
+    }
+
+    .card {
+        width: 290px; /* Slightly wider for better text flow */
+        height: auto;
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+    }
+
+    .image-box {
+        height: 250px; /* Taller image on mobile */
+    }
+
+    .external-nav {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+
+    /* Better Bottom Nav on Mobile */
+    .nav-buttons {
+        flex-direction: column;
+        width: 85%;
+        gap: 12px;
+        margin-top: 30px;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 14px;
+        font-size: 0.95rem;
+    }
+
+    #message {
+        font-size: 0.85rem;
+        height: auto;
+        min-height: 40px;
+        margin-bottom: 15px;
+    }
+}

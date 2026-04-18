@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>For You 🎧</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="music.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Animated Background Layer -->
+    <div class="bg-overlay"></div>
+
+    <div class="container">
+
+        <!-- Swiper Layout -->
+        <div class="music-layout">
+
+            <!-- External Previous Button -->
+            <button onclick="prevSong()" class="external-nav">❮</button>
+
+            <!-- The Main Card -->
+            <div class="card">
+                <!-- Image -->
+                <div class="image-box">
+                    <img id="cover" src="images/dandoline.jpeg" draggable="false">
+                </div>
+
+                <div class="content">
+                    <h2 id="title">The ones you always come back to 🎧</h2>
+                    <p class="sub" id="subtitle">Dandelions</p>
+
+                    <p id="message">Press play…</p>
+
+                    <!-- Progress -->
+                    <div class="progress-container" onclick="seek(event)">
+                        <div class="progress" id="progress"></div>
+                    </div>
+
+                    <div class="time">
+                        <span id="current">0:00</span>
+                        <span id="duration">0:00</span>
+                    </div>
+
+                    <!-- Main Controls -->
+                    <div class="controls">
+                        <button id="toggleBtn" onclick="togglePlay()">▶</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- External Next Button -->
+            <button onclick="nextSong()" class="external-nav">❯</button>
+
+        </div>
+
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="nav-buttons">
+        <button onclick="window.location.href='grid.html'" class="btn">← Back</button>
+        <button onclick="window.location.href='index.html'" class="btn">Start again ❤️</button>
+        <button onclick="window.location.href='secret.html'" class="btn btn-primary">Unlock Mystery 🔒</button>
+    </div>
+
+    <audio id="song">
+        <source src="music/song.mp3" type="audio/mp3">
+    </audio>
+
+    <script src="music.js"></script>
+</body>
+
+</html>
