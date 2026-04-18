@@ -134,16 +134,17 @@ h1 {
         flex-direction: column;
         justify-content: space-between; /* 🔥 KEY LINE: Distributes space perfectly */
         align-items: center;
-        padding: 10px;
+        padding: 5px 10px;
         box-sizing: border-box;
         width: 100%;
+        overflow: hidden;
     }
 
     h1 {
-        font-size: 16px !important;
+        font-size: 15px !important;
         text-align: center;
-        margin: 5px 0 !important;
-        line-height: 1.3;
+        margin: 2px 0 !important;
+        line-height: 1.2;
         flex-shrink: 0;
         background: linear-gradient(135deg, #2b2fd6, #f472b6);
         -webkit-background-clip: text;
@@ -161,6 +162,7 @@ h1 {
         margin: 0;
         padding: 0;
         overflow: hidden;
+        min-height: 0; /* Important for flex-shrink */
     }
 
     .photo-card {
@@ -180,8 +182,8 @@ h1 {
     }
 
     .photo-card img {
-        width: 90%;
-        max-height: 55vh; /* 🔥 Controlled height to ensure it fits */
+        width: 85%;
+        max-height: 45vh; /* 🔥 Reduced further to guarantee button space */
         object-fit: cover;
         border-radius: 20px;
         box-shadow: 0 15px 40px rgba(0,0,0,0.15);
@@ -189,30 +191,30 @@ h1 {
 
     .text-container {
         text-align: center;
-        font-size: 13px;
-        margin: 5px 0;
+        font-size: 12px;
+        margin: 2px 0;
         flex-shrink: 0;
         color: #666;
     }
 
     #message, .final {
-        font-size: 13px !important;
+        font-size: 12px !important;
         margin: 0 !important;
     }
 
     .nav-buttons {
         display: flex;
-        gap: 10px;
-        margin-bottom: 5px !important;
+        gap: 8px;
+        margin-bottom: 25px !important; /* 🔥 Pushed up significantly from the bottom edge */
         width: auto !important;
         padding: 0 !important;
         flex-shrink: 0;
     }
 
     .btn {
-        padding: 8px 15px !important;
+        padding: 8px 12px !important;
         border-radius: 20px !important;
-        font-size: 13px !important;
+        font-size: 12px !important;
     }
 
     /* Keep Arrows properly placed on Top of card */
