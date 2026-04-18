@@ -106,8 +106,8 @@ function closeModal() {
 // Redirect to home
 function goToHome() {
     document.body.style.opacity = 0;
-    document.body.style.transition = "0.8s";
+    document.body.style.transition = "0.4s";
     setTimeout(() => {
         window.location.href = "index.html";
-    }, 800);
+    }, 400);
 }

@@ -21,7 +21,7 @@ function enterWorld() {
     // Redirect after animation and sound fade
     setTimeout(() => {
         window.location.href = "reasons.html";
-    }, 800);
+    }, 400);
 }
 
 // Particles

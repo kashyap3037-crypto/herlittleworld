@@ -63,11 +63,11 @@ body::after {
     display: flex;
     align-items: center;
     gap: 30px;
-    animation: fadeIn 1s ease;
+    animation: fadeIn 0.5s ease;
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
+    from { opacity: 0; transform: scale(0.95); }
     to { opacity: 1; transform: scale(1); }
 }
 
@@ -222,11 +222,11 @@ body::after {
     margin-top: 40px;
     display: flex;
     gap: 20px;
-    animation: fadeInBtns 1.5s ease;
+    animation: fadeInBtns 0.6s ease;
 }
 
 @keyframes fadeInBtns {
-    from { opacity: 0; transform: translateY(20px); }
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 

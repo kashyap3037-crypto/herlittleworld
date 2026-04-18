@@ -21,7 +21,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    animation: fadeInPage 0.8s ease-out;
+    animation: fadeInPage 0.4s ease-out;
 }
 
 @keyframes fadeInPage {
@@ -118,7 +118,7 @@
     max-width: 500px;
     text-align: center;
     line-height: 1.6;
-    animation: fadeIn 2s ease;
+    animation: fadeIn 0.6s ease;
 }
 
 @keyframes fadeIn {
