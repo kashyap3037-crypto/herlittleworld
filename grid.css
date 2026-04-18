@@ -122,20 +122,24 @@ h1 {
 /* 🔥 MOBILE TRANSFORMATION (SWIPER) */
 @media (max-width: 768px) {
     body {
-        padding: 5px 0;
+        padding: 0;
+        margin: 0;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         height: 100vh;
         height: 100dvh;
         overflow: hidden;
+        justify-content: flex-start;
+        align-items: center;
     }
 
     h1 {
         font-size: 1.1rem;
-        padding: 2px 10px;
-        margin-bottom: 2px;
-        line-height: 1.1;
+        padding: 5px 15px;
+        margin-top: 5px;
+        margin-bottom: 0px;
+        line-height: 1.2;
+        width: 100%;
         flex-shrink: 0;
     }
 
@@ -144,117 +148,99 @@ h1 {
         flex-wrap: nowrap; /* Force single row */
         overflow-x: auto;
         scroll-snap-type: x mandatory;
-        gap: 0; /* Remove gap for perfectly touching cards */
-        padding: 2px 0;
-        margin: 0;
-        justify-content: flex-start;
-        -webkit-overflow-scrolling: touch;
-        flex: 1;
+        gap: 0; 
+        padding: 0;
+        margin: 10px 0;
+        width: 100%;
+        flex: 1; /* Take up all available center space */
         align-items: center;
+        -webkit-overflow-scrolling: touch;
     }
 
-    /* Removed peek element */
     .photo-card {
         flex: 0 0 100%;
         width: 100%;
-        height: min(240px, 32vh); /* Even smaller to be safe */
+        height: 35vh; /* Responsive height */
         scroll-snap-align: center;
-        transform: scale(0.9) rotate(0deg) !important;
-        transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        padding: 0;
         margin: 0;
-        position: relative;
         display: flex;
         align-items: center;
         justify-content: center;
+        background: transparent;
+        box-shadow: none;
+        transform: scale(0.9) !important;
     }
 
     .photo-card img {
-        width: 80%;
+        width: 85%;
         height: 100%;
-        border-radius: 18px;
-        box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        border-radius: 15px;
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         object-fit: cover;
+        border: 5px solid white;
     }
 
-
     .photo-card.active {
-        transform: scale(1.02) rotate(0deg) !important;
-        box-shadow: 0 20px 60px rgba(244, 114, 182, 0.2);
+        transform: scale(1) !important;
         z-index: 10;
     }
 
     #message {
         font-size: 0.9rem;
-        margin: 5px auto;
-        padding: 2px 15px;
-        flex-shrink: 0;
+        padding: 5px 15px;
+        margin-bottom: 60px; /* Room for fixed buttons */
+        color: #666;
     }
 
     .nav-buttons {
+        position: fixed;
+        bottom: 12px;
+        left: 0;
+        width: 100%;
         display: flex;
         justify-content: center;
-        gap: 8px;
-        margin-top: auto; /* Push to bottom */
-        margin-bottom: 12px;
-        padding: 0 10px;
-        flex-shrink: 0;
-        width: 100%;
+        gap: 12px;
+        padding: 0 15px;
+        z-index: 5000; /* Above everything */
+        background: transparent;
     }
 
     .btn {
-        padding: 8px 10px;
-        border-radius: 30px;
+        padding: 10px 10px;
+        border-radius: 25px;
         font-size: 0.8rem;
-        flex: 1; /* Make buttons equal width on mobile */
-        min-width: 80px;
+        flex: 1;
+        max-width: 110px;
         justify-content: center;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
     .final {
-        display: none; /* Hide until all memories are seen */
-        font-size: 0.9rem;
-        color: #f472b6;
-        margin: 5px 0;
-        font-weight: 600;
-        animation: fadeIn 1s ease;
+        display: none;
+        font-size: 0.85rem;
+        margin-bottom: 5px;
+        padding: 0 15px;
     }
 
-    /* FIXED MOBILE NAV (App Style) */
+    /* Fixed Arrows adjustment */
     .mobile-swiper-nav {
-        display: flex !important; /* Force visible on mobile */
+        display: flex !important;
         position: fixed;
-        top: 48%; /* Adjust to middle of card */
-        left: 0;
+        top: 35%; /* Move up a bit */
         width: 100%;
-        justify-content: space-between;
-        padding: 0 12px;
-        z-index: 3000;
+        padding: 0 5px;
+        z-index: 4000;
         pointer-events: none;
     }
 
     .swiper-btn {
         pointer-events: auto;
-        background: rgba(255, 255, 255, 0.6); /* More visible */
-        backdrop-filter: blur(10px);
-        width: 55px;
-        height: 55px;
-        border-radius: 50%;
-        border: 2px solid rgba(255, 255, 255, 0.5);
-        color: #333;
-        font-size: 28px; /* Larger arrows */
-        font-weight: bold;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        cursor: pointer;
-        box-shadow: 0 8px 32px rgba(0,0,0,0.15);
-        transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    .swiper-btn:active {
-        background: #f472b6;
-        color: white;
-        transform: scale(0.9);
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
     }
 }
 
