@@ -80,7 +80,9 @@ function openModal(id) {
     viewedMemories.add(id);
     if (viewedMemories.size === 4) {
         const finalMsg = document.getElementById("final");
+        const initialMsg = document.getElementById("message");
         if (finalMsg) finalMsg.style.display = "block";
+        if (initialMsg) initialMsg.style.display = "none";
     }
 
     // Close on outside click

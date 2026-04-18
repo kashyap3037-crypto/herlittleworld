@@ -125,17 +125,17 @@ h1 {
         padding: 2px 0;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: space-evenly;
         height: 100vh;
         height: 100dvh;
         overflow: hidden;
     }
 
     h1 {
-        font-size: 1rem;
+        font-size: 0.9rem;
         padding: 2px 10px;
-        margin-bottom: 0;
-        line-height: 1;
+        margin: 0;
+        line-height: 1.1;
         flex-shrink: 0;
     }
 
@@ -146,28 +146,28 @@ h1 {
         align-items: center;
         width: 100%;
         margin: 0 auto;
-        padding: 5px 0;
+        padding: 2px 0;
         flex: 1;
         overflow: hidden;
     }
 
     .photo-card {
         display: none;
-        width: 85%;
-        height: min(250px, 35vh); /* Further reduced */
+        width: 80%;
+        height: 30vh; /* Reduced significantly */
+        max-height: 220px;
         background: white;
-        padding: 10px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        border-radius: 15px;
+        padding: 8px; /* Slimmer polaroid look */
+        box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        border-radius: 12px;
         position: relative;
         align-items: center;
         justify-content: center;
-        transition: opacity 0.4s ease;
     }
 
     .photo-card.active {
         display: flex !important;
-        animation: fadeIn 0.5s ease;
+        animation: fadeIn 0.4s ease;
     }
 
     .photo-card img {
@@ -177,40 +177,39 @@ h1 {
         object-fit: cover;
     }
 
-    #message {
-        font-size: 0.85rem;
+    #message, .final {
+        font-size: 0.8rem;
         margin: 2px auto;
-        padding: 2px 10px;
+        padding: 0 10px;
         flex-shrink: 0;
+        line-height: 1.2;
     }
 
     .nav-buttons {
         display: flex;
         justify-content: center;
         gap: 6px;
-        margin-top: auto;
-        margin-bottom: 8px;
-        padding: 0 10px;
+        margin: 5px 0;
+        padding: 0 8px;
         flex-shrink: 0;
         width: 100%;
     }
 
     .btn {
-        padding: 8px;
-        border-radius: 30px;
-        font-size: 0.75rem;
+        padding: 6px 10px;
+        border-radius: 20px;
+        font-size: 0.7rem;
         flex: 1;
-        min-width: 70px;
+        min-width: 60px;
         justify-content: center;
     }
 
     .final {
-        display: none;
-        font-size: 0.85rem;
+        display: none; /* Controlled by JS */
+        font-size: 0.8rem;
         color: #f472b6;
-        margin: 2px 0;
         font-weight: 600;
-        animation: fadeIn 1s ease;
+        text-align: center;
     }
 
     /* FIXED MOBILE NAV (App Style) */
