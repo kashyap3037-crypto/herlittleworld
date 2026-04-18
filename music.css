@@ -270,28 +270,30 @@ body::after {
 /* Mobile Responsiveness */
 @media (max-width: 600px) {
     body {
-        padding: 20px 0;
-        justify-content: flex-start;
-        padding-top: 50px;
+        padding: 5px 0;
+        justify-content: space-evenly;
+        height: 100vh;
+        overflow: hidden;
     }
 
     /* Stack arrows comfortably */
     .music-layout {
         flex-direction: row;
-        gap: 12px;
+        gap: 10px;
         width: 100%;
         justify-content: center;
-        padding: 0 10px;
+        padding: 0 5px;
+        flex: 1;
     }
 
     .card {
-        width: 290px; /* Slightly wider for better text flow */
+        width: 260px; /* Slightly more compact */
         height: auto;
         box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
     }
 
     .image-box {
-        height: 250px; /* Taller image on mobile */
+        height: 180px; /* Reduced for smaller screens */
     }
 
     .external-nav {
@@ -302,22 +304,23 @@ body::after {
 
     /* Better Bottom Nav on Mobile */
     .nav-buttons {
-        flex-direction: column;
-        width: 85%;
-        gap: 12px;
-        margin-top: 30px;
+        flex-direction: row; /* Horizontal for compact fit */
+        width: 90%;
+        gap: 10px;
+        margin-top: 10px;
+        flex-shrink: 0;
     }
 
     .btn {
-        width: 100%;
-        padding: 14px;
-        font-size: 0.95rem;
+        flex: 1;
+        padding: 10px 5px;
+        font-size: 0.8rem;
     }
 
     #message {
         font-size: 0.85rem;
         height: auto;
-        min-height: 40px;
-        margin-bottom: 15px;
+        min-height: 30px;
+        margin-bottom: 10px;
     }
 }

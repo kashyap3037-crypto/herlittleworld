@@ -99,31 +99,43 @@ body::before {
     .hero {
         flex-direction: column-reverse; /* Put image above text on mobile for better flow */
         text-align: center;
-        padding: 60px 25px;
-        gap: 40px;
+        padding: 20px 20px;
+        gap: 15px;
         justify-content: center;
+        height: 100vh;
+        overflow: hidden;
     }
 
     .hero-text {
         max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .hero-text h1 {
-        font-size: 2.1rem;
-        line-height: 1.4;
+        font-size: 1.8rem;
+        line-height: 1.3;
+        margin-bottom: 10px;
     }
 
     .hero-text p {
-        font-size: 1rem;
+        font-size: 0.9rem;
+        margin-top: 5px;
+        line-height: 1.4;
     }
 
     .hero-text button {
+        margin-top: 20px;
+        padding: 12px 30px;
         width: 100%;
-        max-width: 280px;
+        max-width: 250px;
     }
 
     .hero-img img {
-        width: 280px;
+        width: 220px;
+        max-height: 35vh;
+        object-fit: cover;
         transform: rotate(-3deg); /* Stylish tilt on mobile */
     }
 }
