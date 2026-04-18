@@ -14,47 +14,49 @@
 
 <body>
 
-    <h1>Not every moment looks special… but some stay forever❤️</h1>
+    <div class="page">
+        <h1>Not every moment looks special… but some stay forever❤️</h1>
 
-    <!-- 🔥 MOBILE FIXED NAV -->
-    <div class="mobile-swiper-nav">
-        <button class="swiper-btn prev" onclick="prevCard()">‹</button>
-        <button class="swiper-btn next" onclick="nextCard()">›</button>
-    </div>
-
-    <div class="photo-grid">
-
-        <div class="photo-card" onclick="openModal(1)">
-            <img src="images/flower.jpeg">
+        <!-- 🔥 MOBILE FIXED NAV -->
+        <div class="mobile-swiper-nav">
+            <button class="swiper-btn prev" onclick="prevCard()">‹</button>
+            <button class="swiper-btn next" onclick="nextCard()">›</button>
         </div>
 
-        <div class="photo-card" onclick="openModal(2)">
-            <img src="images/jumka.jpeg">
+        <div class="photo-grid">
+
+            <div class="photo-card" onclick="openModal(1)">
+                <img src="images/flower.jpeg">
+            </div>
+
+            <div class="photo-card" onclick="openModal(2)">
+                <img src="images/jumka.jpeg">
+            </div>
+
+            <div class="photo-card" onclick="openModal(3)">
+                <img src="images/food.jpeg">
+            </div>
+
+            <div class="photo-card" onclick="openModal(4)">
+                <img src="images/smile.jpeg">
+            </div>
+
         </div>
 
-        <div class="photo-card" onclick="openModal(3)">
-            <img src="images/food.jpeg">
+        <!-- Message -->
+        <div class="text-container">
+            <p id="message">Click to see a memory…</p>
+            <div id="final" class="final">
+                You don’t even realize how special these moments are… ❤️
+            </div>
         </div>
 
-        <div class="photo-card" onclick="openModal(4)">
-            <img src="images/smile.jpeg">
+        <!-- Navigation -->
+        <div class="nav-buttons">
+            <button onclick="window.location.href='reasons.html'" class="btn">← Back</button>
+            <button onclick="window.location.href='index.html'" class="btn">Home ❤️</button>
+            <button onclick="window.location.href='music.html'" class="btn btn-primary">Next ✨</button>
         </div>
-
-    </div>
-
-    <!-- Message -->
-    <p id="message">Click to see a memory…</p>
-
-    <!-- Final Message -->
-    <div id="final" class="final">
-        You don’t even realize how special these moments are… ❤️
-    </div>
-
-    <!-- Navigation -->
-    <div class="nav-buttons">
-        <button onclick="window.location.href='reasons.html'" class="btn">← Back</button>
-        <button onclick="window.location.href='index.html'" class="btn">Home ❤️</button>
-        <button onclick="window.location.href='music.html'" class="btn btn-primary">Next ✨</button>
     </div>
 
     <!-- Memory Modal -->
