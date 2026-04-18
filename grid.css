@@ -122,19 +122,19 @@ h1 {
 /* 🔥 MOBILE TRANSFORMATION (SWIPER) */
 @media (max-width: 768px) {
     body {
-        padding: 10px 0;
+        padding: 5px 0;
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
         height: 100vh;
+        height: 100dvh;
         overflow: hidden;
     }
 
     h1 {
-        font-size: 1.25rem;
-        padding: 0 20px;
-        margin-bottom: 10px;
-        line-height: 1.3;
+        font-size: 1.15rem;
+        padding: 5px 15px;
+        margin-bottom: 5px;
+        line-height: 1.2;
         flex-shrink: 0;
     }
 
@@ -144,7 +144,7 @@ h1 {
         overflow-x: auto;
         scroll-snap-type: x mandatory;
         gap: 0; /* Remove gap for perfectly touching cards */
-        padding: 10px 0;
+        padding: 5px 0;
         margin: 0;
         justify-content: flex-start;
         -webkit-overflow-scrolling: touch;
@@ -156,7 +156,7 @@ h1 {
     .photo-card {
         flex: 0 0 100%;
         width: 100%;
-        height: min(280px, 40vh); /* Smaller card height */
+        height: min(280px, 35vh); /* Further reduced for extra safety */
         scroll-snap-align: center;
         transform: scale(0.9) rotate(0deg) !important;
         transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -168,7 +168,7 @@ h1 {
     }
 
     .photo-card img {
-        width: 80%; /* Slightly smaller for focus */
+        width: 80%;
         height: 100%;
         border-radius: 18px;
         box-shadow: 0 12px 30px rgba(0,0,0,0.15);
@@ -183,26 +183,29 @@ h1 {
     }
 
     #message {
-        font-size: 1rem;
+        font-size: 0.9rem;
         margin: 5px auto;
-        padding: 5px 15px;
+        padding: 2px 15px;
+        flex-shrink: 0;
     }
 
     .nav-buttons {
         display: flex;
         justify-content: center;
-        gap: 10px;
-        margin: 10px 0;
-        padding: 0 15px;
+        gap: 8px;
+        margin-top: auto; /* Push to bottom */
+        margin-bottom: 12px;
+        padding: 0 10px;
         flex-shrink: 0;
+        width: 100%;
     }
 
     .btn {
-        padding: 10px 15px;
+        padding: 10px 12px;
         border-radius: 30px;
-        font-size: 0.85rem;
+        font-size: 0.8rem;
         flex: 1; /* Make buttons equal width on mobile */
-        min-width: 100px;
+        min-width: 90px;
         justify-content: center;
     }
 
@@ -315,6 +318,40 @@ h1 {
 .close-modal:hover {
     color: #f472b6;
     transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        margin: 10% auto;
+        width: 90%;
+        max-height: 85vh; /* Ensure modal doesn't leave the screen */
+        overflow-y: auto; /* Allow scrolling within modal if content is long */
+        border-radius: 20px;
+    }
+
+    .modal-image {
+        height: 250px; /* Much smaller on mobile */
+    }
+
+    .modal-info {
+        padding: 20px;
+    }
+
+    .modal-info h2 {
+        font-size: 1.4rem;
+        margin-bottom: 10px;
+    }
+
+    .modal-info p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .close-modal {
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+    }
 }
 
 @keyframes zoomIn {
