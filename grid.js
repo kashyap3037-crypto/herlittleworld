@@ -19,6 +19,37 @@ const memoryDetails = {
 
 const viewedMemories = new Set();
 
+let currentCardIndex = 0;
+const photoCards = document.querySelectorAll('.photo-card');
+
+function showCard(index) {
+    if (window.innerWidth <= 768) {
+        photoCards.forEach(card => {
+            card.classList.remove('active');
+            card.style.display = 'none';
+        });
+        photoCards[index].classList.add('active');
+        photoCards[index].style.display = 'flex';
+    }
+}
+
+function nextCard() {
+    currentCardIndex = (currentCardIndex + 1) % photoCards.length;
+    showCard(currentCardIndex);
+}
+
+function prevCard() {
+    currentCardIndex = (currentCardIndex - 1 + photoCards.length) % photoCards.length;
+    showCard(currentCardIndex);
+}
+
+// Initialize on load
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.innerWidth <= 768) {
+        showCard(0);
+    }
+});
+
 function openModal(id) {
     const modal = document.getElementById("memoryModal");
     const modalImg = document.getElementById("modalImg");
@@ -48,7 +79,8 @@ function openModal(id) {
     // Track unique views
     viewedMemories.add(id);
     if (viewedMemories.size === 4) {
-        document.getElementById("final").style.display = "block";
+        const finalMsg = document.getElementById("final");
+        if (finalMsg) finalMsg.style.display = "block";
     }
 
     // Close on outside click
@@ -77,45 +109,3 @@ function goToHome() {
         window.location.href = "index.html";
     }, 800);
 }
-
-// 🔥 MOBILE SWIPER ACTIVE EFFECT
-const cards = document.querySelectorAll('.photo-card');
-
-const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            cards.forEach(c => c.classList.remove('active'));
-            entry.target.classList.add('active');
-        }
-    });
-}, { threshold: 0.6 });
-
-cards.forEach(card => observer.observe(card));
-
-// 🔥 FIXED MOBILE NAV CONTROL
-function scrollGrid(direction) {
-    const container = document.querySelector('.photo-grid');
-    if (!container) return;
-
-    // Use the actual container width for perfect alignment
-    const scrollAmount = container.clientWidth;
-    container.scrollBy({
-        left: direction * scrollAmount,
-        behavior: 'smooth'
-    });
-}
-
-// 🔥 BUTTON SCROLL CONTROL (For any legacy buttons)
-const container = document.querySelector('.photo-grid');
-
-document.querySelectorAll('.next').forEach(btn => {
-    btn.addEventListener('click', () => {
-        container.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
-    });
-});
-
-document.querySelectorAll('.prev').forEach(btn => {
-    btn.addEventListener('click', () => {
-        container.scrollBy({ left: -window.innerWidth, behavior: 'smooth' });
-    });
-});
